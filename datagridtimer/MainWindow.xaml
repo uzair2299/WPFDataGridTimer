@@ -1,0 +1,23 @@
+﻿<Window x:Class="datagridtimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:datagridtimer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TextBox Background="Wheat" Name="TxtSearch"></TextBox>
+        <Button Name="btnSearch" Click="btnSearch_Click" Content="Submit"></Button>
+        <DataGrid AutoGenerateColumns="False" Name="dgSimple" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="350"
+                   EnableRowVirtualization="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Agent Name" Binding="{Binding AgentName}" IsReadOnly="True" />
+                <DataGridTemplateColumn SortMemberPath="CallStatus" CanUserSort="True" Header="Status"/>
+                <!--NOTE: bind 'DisplayTime' instead of 'Time'-->
+                <DataGridTextColumn Header="Time" Binding="{Binding DisplayTimeString}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Extension" Binding="{Binding Extension}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>
